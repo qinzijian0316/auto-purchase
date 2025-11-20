@@ -25,56 +25,10 @@ jobs:
     
     - name: Build EXE
       run: |
-        pyinstaller --onefile --noconsole --name "自动抢购助手" auto_purchase.py
+        pyinstaller --onefile --console --name "auto_purchase" auto_purchase.py
     
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
         name: auto-purchase-exe
-        path: dist/自动抢购助手.exe
-📄 文件4: README.md
-# 🤖 自动抢购助手
-
-## ⚠️ 免责声明
-本工具仅供学习交流使用，请勿用于实际抢购，使用本工具产生的任何后果由使用者自行承担。
-
-## 📥 下载 EXE
-
-1. 进入 [Actions](../../actions) 页面
-2. 点击最新的 workflow run
-3. 下载 `auto-purchase-exe` 文件
-4. 解压得到 `自动抢购助手.exe`
-
-## 🚀 使用方法
-
-### 前置要求
-- ✅ 安装 Chrome 浏览器
-- ✅ Windows 10/11 系统
-
-### 运行步骤
-1. 双击 `自动抢购助手.exe`
-2. 输入登录页面 URL（如：https://www.taobao.com）
-3. 输入商品页面 URL
-4. 设置检查间隔（秒）
-5. 在弹出的浏览器中手动登录
-6. 等待程序自动监控和购买
-
-## 🛠️ 高级配置
-
-### 修改 CSS 选择器
-不同网站的按钮选择器不同，需要修改代码中的：
-- 购买按钮：`button[class*='buy']`
-- 结算按钮：`button[class*='checkout']`
-- 提交按钮：`button[class*='submit']`
-
-### 本地开发
-```bash
-# 安装依赖
-pip install -r requirements.txt
-
-# 运行程序
-python auto_purchase.py
-
-# 打包成 EXE
-pip install pyinstaller
-pyinstaller --onefile --noconsole auto_purchase.py
+        path: dist/auto_purchase.exe
